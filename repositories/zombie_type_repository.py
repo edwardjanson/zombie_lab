@@ -1,6 +1,7 @@
 from db.run_sql import run_sql
 from models.zombie_type import ZombieType
 
+
 def save(zombie_type):
     sql = "INSERT INTO zombie_types (name) VALUES (%s) RETURNING id"
     values = [zombie_type.name]
@@ -29,7 +30,7 @@ def select(id):
     # if len(results) > 0 
     if results:
         result = results[0]
-    zombie_type = ZombieType(result["name"], result["id"])
+        zombie_type = ZombieType(result["name"], result["id"])
     return zombie_type
 
 

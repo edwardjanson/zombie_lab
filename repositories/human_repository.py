@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.human import Human
+import pdb
 
 def save(human):
     sql = "INSERT INTO humans (name) VALUES (%s) RETURNING id"
