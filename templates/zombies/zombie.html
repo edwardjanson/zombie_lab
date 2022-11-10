@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Zombies</h2>
+
+<section>
+    <h3>{{ zombie.name }}</h3>
+    <p>{{ zombie.zombie_type.name }}</p>
+    <a href="/zombies/{{ zombie.id }}/edit">Edit</a>
+    <form action="/zombies/{{ zombie.id }}/delete" method="POST">
+        <input type="submit" value="Delete">
+    </form>
+    <span>Human's bitten:</span>
+    <ul>
+    {% for human_bit in humans_bitten %}
+        <li>{{ human_bit.name }}</li>
+    {% endfor %}
+    </ul>
+</section>
+
+{% endblock %}
