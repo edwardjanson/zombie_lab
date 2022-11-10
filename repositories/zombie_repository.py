@@ -25,6 +25,7 @@ def select_all():
 
 
 def select(id):
+    zombie = None
     sql = "SELECT * FROM zombies WHERE id = %s"
     values = [id]
     results = run_sql(sql, values)
@@ -37,6 +38,7 @@ def select(id):
         zombie_type = zombie_type_repository.select(result["zombie_type_id"])
         zombie = Zombie(result["name"], zombie_type, result["id"])
     return zombie
+
 
 def delete_all():
     sql = "DELETE FROM zombies"
